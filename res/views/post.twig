@@ -1,0 +1,100 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="row">
+
+  <!-- Blog Post Content Column -->
+  <div class="col-lg-8">
+
+    <!-- Blog Post -->
+
+    <!-- Title -->
+    <h1 class="post-title"></h1>
+
+    <!-- Author -->
+    <p class="lead">
+      by <span class="post-author"></span>
+    </p>
+
+    <hr>
+
+    <!-- Date/Time -->
+    <p><span class="glyphicon glyphicon-time"></span> Posted on <span class="post-date"></span></p>
+
+    <hr>
+
+    <!-- Preview Image -->
+    <img class="img-responsive" src="/assets/img/php.png" alt="">
+
+    <hr>
+
+    <!-- Post Content -->
+    <p class="lead post-body"></p>
+
+    <hr>
+
+    <!-- Blog Comments -->
+
+    <!-- Comments Form -->
+    <div class="well">
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control input-comment" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary send-comment">Send</button>
+      </form>
+    </div>
+
+    <hr>
+
+    <!-- Posted Comments -->
+
+    <!-- Comment -->
+    <div class="list-comments">
+      <div class="box-comment">
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64" alt="">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading"><span class="comment-user"></span>
+              <small class="comment-date"></small>
+            </h4>
+            <span class="comment-text"></span>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Blog Sidebar Widgets Column -->
+  <div class="col-md-4">
+
+    <!-- Blog Search Well -->
+    <div class="well">
+      <h4>New Post</h4>
+      <div class="input-group">
+        <a href="/post/create" class="btn btn-primary">Create New Post</a>
+      </div>
+      <!-- /.input-group -->
+    </div>
+
+  </div>
+
+</div>
+<!-- /.row -->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+  !function ($) {
+    'use strict';
+
+    $.Post.loadOne("{{ idPost }}");
+    $.Post.addComment("{{ idPost }}");
+  }(window.jQuery);
+</script>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="row">
+
+  <!-- Blog Entries Column -->
+  <div class="col-md-8">
+
+    <h1 class="page-header">
+      Doctrine ODM Simple Blog
+      <small>PHP 7</small>
+    </h1>
+
+    <div class="no-posts">
+      <i>No post found. <a href="/post/create">Create new post.</a></i>
+    </div>
+    <div class="list-posts">
+      <div class="post-box">
+        <h2><a href="#" class="post-title"></a></h2>
+        <p class="lead">by <span class="post-author"></span></p>
+        <p><span class="glyphicon glyphicon-time"></span> Posted on <span class="post-date"></span></p>
+        <hr>
+        <img class="img-responsive" src="/assets/img/php.png" alt="">
+        <hr>
+        <p class="post-text"></p>
+        <a class="btn btn-primary link-read-more" href="#">
+          Read More <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <hr>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Blog Sidebar Widgets Column -->
+  <div class="col-md-4">
+
+    <!-- Blog Search Well -->
+    <div class="well">
+      <h4>New Post</h4>
+      <div class="input-group">
+        <a href="/post/create" class="btn btn-primary">Create New Post</a>
+      </div>
+      <!-- /.input-group -->
+    </div>
+
+  </div>
+
+</div>
+<!-- /.row -->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+  !function ($) {
+    'use strict';
+
+    $.Post.loadAll();
+  }(window.jQuery);
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="row">
+
+  <!-- Blog Post Content Column -->
+  <div class="col-lg-8">
+
+    <form id="form-post">
+      
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input name="title" id="title" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="body">Post</label>
+        <textarea name="body" id="body" class="form-control" rows="10"></textarea>
+      </div>
+
+      <button type="button" id="send-post" class="btn btn-default">Submit</button>
+
+    </form>
+
+  </div>
+
+  <!-- Blog Sidebar Widgets Column -->
+  <div class="col-md-4">
+
+    <!-- Blog Search Well -->
+    <div class="well">
+      <h4>New Post</h4>
+      <div class="input-group">
+        <a href="/post/create" class="btn btn-primary">Create New Post</a>
+      </div>
+      <!-- /.input-group -->
+    </div>
+
+  </div>
+
+</div>
+<!-- /.row -->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+  !function ($) {
+    'use strict';
+
+    $.Post.create();
+  }(window.jQuery);
+</script>
+{% endblock %}

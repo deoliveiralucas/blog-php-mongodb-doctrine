@@ -4,6 +4,7 @@ namespace DOLucas\Blog\Repository;
 
 use DOLucas\Blog\Document\Post;
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\Cursor;
 
 /**
  * @author Lucas de Oliveira <contato@deoliveiralucas.net>
@@ -33,16 +34,16 @@ class PostRepository
     /**
      * @param Post $post
      */
-    public function save(Post $post)
+    public function save(Post $post) : void
     {
         $this->dm->persist($post);
         $this->dm->flush();
     }
 
     /**
-     * @return array
+     * @return Cursor
      */
-    public function getAll()
+    public function getAll() : Cursor
     {
         return $this
             ->queryBuilder
@@ -53,9 +54,9 @@ class PostRepository
 
     /**
      * @param string $id
-     * @return array
+     * @return Post
      */
-    public function getById(string $id)
+    public function getById(string $id) : Post
     {
         return $this
             ->queryBuilder

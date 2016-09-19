@@ -66,7 +66,7 @@ class PostService
     /**
      * @param array $params
      */
-    public function create(array $params)
+    public function create(array $params) : array
     {
         try {
             $this->postValidator->validate($params);
@@ -100,7 +100,7 @@ class PostService
     /**
      * @return array
      */
-    public function getAll()
+    public function getAll() : array
     {
         return $this->toArray($this->repository->getAll());
     }
@@ -109,7 +109,7 @@ class PostService
      * @param string $idPost
      * @return array
      */
-    public function getById(string $idPost)
+    public function getById(string $idPost) : array
     {
         return $this->toArray($this->repository->getById($idPost));
     }
@@ -119,7 +119,7 @@ class PostService
      * @param array $params
      * @return array
      */
-    public function addComment(string $idPost, array $params)
+    public function addComment(string $idPost, array $params) : array
     {
         try {
             $this->commentValidator->validate($params);

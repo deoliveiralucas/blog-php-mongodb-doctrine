@@ -3,7 +3,7 @@
  * Website: http://deoliveiralucas.net
  */
 
- !function ($) {
+!function ($) {
   'use strict';
 
   var Post = function () {

@@ -34,7 +34,7 @@ class PostRepository
     /**
      * @param Post $post
      */
-    public function save(Post $post) : void
+    public function save(Post $post)
     {
         $this->dm->persist($post);
         $this->dm->flush();
